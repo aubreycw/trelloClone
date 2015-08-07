@@ -1,4 +1,4 @@
-class TodoItemsController < ApplicationController
+class Api::TodoItemsController < ApplicationController
   def show
     todo_item = TodoItem.find(params[:id])
     render :json => todo_item

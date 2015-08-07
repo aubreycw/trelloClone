@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class Api::ListsController < ApplicationController
   def show
     list = List.find(params[:id])
     render :json => list, :include => :cards
