@@ -9,7 +9,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    list = List.new(card_params)
+    list = List.new(list_params)
     if list.save!
       render :json => list
     else
@@ -17,7 +17,7 @@ class ListsController < ApplicationController
     end
   end
 
-  def card_params
+  def list_params
     params.require(:list).permit(:name)
   end
 
