@@ -8,4 +8,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  root to: "static_pages#index"
 end
+ 

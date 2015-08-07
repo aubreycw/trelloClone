@@ -1,5 +1,9 @@
-Trello.Collections.Board = Backbone.Model.extend({
-  url: 'api/boards',
+Trello.Collections.Boards = Backbone.Collection.extend({
+  url: "/api/boards",
 
-  model: Trello.Models.Board
+  model: Trello.Models.Board,
+
+  initialize: function(){
+
+  },
 })
