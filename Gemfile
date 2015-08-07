@@ -27,6 +27,8 @@ gem 'backbone-on-rails'
 
 gem 'annotate'
 
+gem 'serialize_json-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

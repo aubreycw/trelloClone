@@ -1,19 +1,21 @@
 Trello.Views.BoardsIndex = Backbone.View.extend({
-  initialize: function(options){
-    this.collection = options.collection;
+  initialize: function(){
+  this.listenTo(this.collection, "sync add", this.render);
   },
 
   template: JST['boards_index'],
 
   render: function(){
+    console.log("in render")
     var boards = this.collection;
-    var that = this;
-    boards.fetch({
-      success: function(){
-        var content = that.template({boards: boards});
-        that.$el.html(content);
-      } 
-    })
+    var content = this.template({boards: boards});
+    this.$el.html(content);
+    this.addFormView();
     return this;
-  }
+  },
+
+  addFormView: function (){
+    var formView = new Trello.Views.BoardNew({collection: this.collection});
+    this.$el.find(".form").html(formView.render().$el);
+  },
 })
