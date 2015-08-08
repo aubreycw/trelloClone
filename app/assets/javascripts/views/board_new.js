@@ -21,7 +21,6 @@ Trello.Views.BoardNew = Backbone.View.extend({
     var that = this;
     board.save({},{
       success: function(){
-        console.log("in success")
         that.collection.add(board);
         that.collection.fetch();
       },

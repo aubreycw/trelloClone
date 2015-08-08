@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 boards = Board.create([{name: 'Kitten'}, {name: "Chick"}, {name: "Horseling"}])
+
+lists = List.create([{name: "head", board_id: 1, ord: 1}, {name: "body", board_id: 1, ord: 2}, {name: "tails", board_id: 1, ord: 3}])

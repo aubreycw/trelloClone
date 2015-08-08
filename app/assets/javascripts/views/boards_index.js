@@ -6,10 +6,16 @@ Trello.Views.BoardsIndex = Backbone.View.extend({
   template: JST['boards_index'],
 
   render: function(){
-    console.log("in render")
     var boards = this.collection;
-    var content = this.template({boards: boards});
+    var content = this.template();
     this.$el.html(content);
+    
+    var that = this;
+    boards.each(function(board){
+      var boardItem = new Trello.Views.BoardsIndexItem({model: board});
+      that.$el.find(".boards_list").append(boardItem.render().$el);
+    });
+
     this.addFormView();
     return this;
   },

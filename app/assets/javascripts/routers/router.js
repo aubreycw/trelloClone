@@ -26,5 +26,17 @@ Trello.Routers.Router = Backbone.Router.extend({
     this.collection.fetch();
     var view = new Trello.Views.BoardNew({collection: this.collection});
     this._swapView(view);
+  },
+
+  showBoard: function(id){
+    console.log("showing board");
+    var model = this.collection.getOrFetch(id);
+    var that = this;
+    model.fetch({
+      success: function(){
+        var view = new Trello.Views.BoardShow({model: model, collection:this.collection})
+        that._swapView(view);
+      }
+    });
   }
 });
